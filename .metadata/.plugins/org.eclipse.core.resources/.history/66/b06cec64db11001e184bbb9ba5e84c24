@@ -1,0 +1,34 @@
+
+//by using first way.. by extending Thread class
+
+class Hi extends Thread{
+	
+	for(int i=1;i<=10;i++)
+	{
+	System.out.println("hi");	
+	Thread.sleep(150);
+	}
+}
+
+class By extends Thread{
+
+	for(int i=1;i<=10;i++)
+	{
+	System.out.println("by");
+	Thread.sleep(150);
+	}
+}
+
+public class ThreadTest1 {
+
+	public static void main(String[] args) throws InterruptedException {
+	
+		for(int i=1;i<=10;i++)
+		{
+		System.out.println("main");	
+		Thread.sleep(150);
+		}
+	
+	}
+
+}

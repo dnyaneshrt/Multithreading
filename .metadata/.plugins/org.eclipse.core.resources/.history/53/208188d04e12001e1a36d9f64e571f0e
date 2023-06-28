@@ -1,0 +1,30 @@
+
+public class ThreadTest2 {
+	public static void main(String[] args) throws InterruptedException {
+	
+		Thread t1=new Thread(()->{
+			for(int i=0;i<10;i++)
+			{
+				System.out.println("Hi 11111111111");
+				try{Thread.sleep(1000);}catch(Exception e) {}
+			}
+		});
+		Thread t2=new Thread(()->{
+			for(int i=0;i<10;i++)
+			{
+				System.out.println("By 22222222222");
+				try{Thread.sleep(1000);}catch(Exception e) {}
+			}
+		});
+		
+		t1.start();
+		t2.start();
+		//join()
+		System.out.println("thread t1 before join: "+t1.isAlive()); //true
+		t1.join();
+		t2.join();
+		System.out.println("thread t1 after join: "+t1.isAlive()); //false
+		System.out.println("Hi Java Developers");
+		
+	}
+}

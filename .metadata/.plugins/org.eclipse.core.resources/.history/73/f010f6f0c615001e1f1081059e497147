@@ -1,0 +1,38 @@
+
+public class ThreadTest5 {
+	public synchronized printOddNumbers() throws InterruptedException
+	{
+		for(int i=1;i<=100;i++)
+		{
+			if(i%2!=0) {
+			System.out.println(i);}
+			try{Thread.sleep(2000);}catch(Exception e) {}
+			wait();
+			
+		}
+	}
+
+	public void printEvenNumbers()
+	{
+		for(int i=1;i<=100;i++)
+		{
+			if(i%2==0) {
+			System.out.println(i);}
+			try{Thread.sleep(500);}catch(Exception e) {}
+			
+		}
+	}
+
+	public static void main(String[] args) {
+		ThreadTest5 threadTest5=new ThreadTest5();
+		Thread t1=new Thread(()->{
+			threadTest5.printOddNumbers();
+		});
+		Thread t2=new Thread(()->{
+			threadTest5.printEvenNumbers();
+		});
+		t1.start();
+		t2.start();
+	}
+
+}
